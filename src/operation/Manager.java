@@ -38,6 +38,10 @@ public class Manager {
 			op.decompress();
 		} else if (line.startsWith("clear")) {
 			currentOperations.clear();
+		} else if (line.startsWith("GetLink")){
+			GetLink op = new GetLink(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
 		}
 		else if (line.startsWith("compress")){
 			for (Operation op : currentOperations) {
