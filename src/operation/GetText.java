@@ -36,12 +36,20 @@ public class GetText extends Operation {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+
+		// Get the text of the html body
 		String text = doc.body().text();
+
 		try {
+			// Create a folder
 			File dir = new File(sibPath + "/" + folderPath);
 			dir.mkdir();
+
+			// Get the file name
 			int index = link.lastIndexOf("/");
 			String fileName = link.substring(index + 1);
+
+			// Create a new file in our system with path = sibPath/folderPath/fileName
 			PrintWriter pw = new PrintWriter(sibPath + "/" + folderPath + "/"
 					+ fileName);
 			pw.println(text);

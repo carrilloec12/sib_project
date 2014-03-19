@@ -30,7 +30,7 @@ public class GetImage extends Operation {
 
 	@Override
 	String compress() {
-		return "GetImage " + link;
+		return "GetImage " + link+ " -folder " + folderPath;
 	}
 
 	@Override
@@ -42,16 +42,24 @@ public class GetImage extends Operation {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// Create a folder to have the images
 		File dir = new File(sibPath + "/" + folderPath);
 		dir.mkdir();
+		
+		// Iterate over all img tags
 		Elements links = doc.getElementsByTag("img");
 		for (Element link : links) {
+			// Get the source link of an image
 			String imageLink = link.attr("src");
+			// We select only valid images that start with http
 			if (imageLink.startsWith("http") == true) {
 				System.out.println(imageLink);
 				try {
+					// Extract the image file name
 					int index = imageLink.lastIndexOf("/");
 					String fileName = imageLink.substring(index + 1);
+					
+					// Download the image to the system at sibPath/folderPath/fileName
 					URL url = new URL(imageLink);
 					InputStream is = url.openStream();
 					OutputStream os = new FileOutputStream(sibPath + "/"
