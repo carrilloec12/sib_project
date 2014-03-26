@@ -43,6 +43,11 @@ public class Manager {
 			currentOperations.add(op);
 			op.decompress();
 		}
+		else if (line.startsWith("DownloadFile")){
+			HttpDownloadUtility op = new HttpDownloadUtility(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
+		}
 		else if (line.startsWith("compress")){
 			for (Operation op : currentOperations) {
 				pw.println(op.compress());
