@@ -38,22 +38,23 @@ public class Manager {
 			op.decompress();
 		} else if (line.startsWith("clear")) {
 			currentOperations.clear();
-		} else if (line.startsWith("GetLink")){
+		} else if (line.startsWith("GetLink")) {
 			GetLink op = new GetLink(sibPath, line);
 			currentOperations.add(op);
 			op.decompress();
-		}
-		else if (line.startsWith("DownloadFile")){
+		} else if (line.startsWith("GetTweet")) {
+			GetTweet op = new GetTweet(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
+		} else if (line.startsWith("DownloadFile")) {
 			HttpDownloadUtility op = new HttpDownloadUtility(sibPath, line);
 			currentOperations.add(op);
 			op.decompress();
-		}
-		else if (line.startsWith("compress")){
+		} else if (line.startsWith("compress")) {
 			for (Operation op : currentOperations) {
 				pw.println(op.compress());
 			}
-		}
-		else if (line.startsWith("decompress")){
+		} else if (line.startsWith("decompress")) {
 			for (Operation op : currentOperations) {
 				op.decompress();
 			}
