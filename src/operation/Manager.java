@@ -42,6 +42,18 @@ public class Manager {
 			GetLink op = new GetLink(sibPath, line);
 			currentOperations.add(op);
 			op.decompress();
+		} else if (line.startsWith("GetResults")){
+			Retrieve_links rl = new Retrieve_links(sibPath, line);
+			GetResults op = new GetResults(sibPath, line);
+			currentOperations.add(rl);
+			currentOperations.add(op);
+			rl.decompress();
+			op.decompress();
+		}
+		else if (line.startsWith("DownloadFile")){
+			HttpDownloadUtility op = new HttpDownloadUtility(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
 		}
 		else if (line.startsWith("compress")){
 			for (Operation op : currentOperations) {
@@ -50,7 +62,7 @@ public class Manager {
 		}
 		else if (line.startsWith("decompress")){
 			for (Operation op : currentOperations) {
-				op.decompress();
+
 			}
 		}
 	}
