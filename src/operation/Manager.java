@@ -38,10 +38,11 @@ public class Manager {
 			op.decompress();
 		} else if (line.startsWith("clear")) {
 			currentOperations.clear();
-		} else if (line.startsWith("GetLink")){
+		} else if (line.startsWith("GetLink")) {
 			GetLink op = new GetLink(sibPath, line);
 			currentOperations.add(op);
 			op.decompress();
+<<<<<<< HEAD
 		} else if (line.startsWith("GetResults")){
 			Retrieve_links rl = new Retrieve_links(sibPath, line);
 			GetResults op = new GetResults(sibPath, line);
@@ -56,11 +57,21 @@ public class Manager {
 			op.decompress();
 		}
 		else if (line.startsWith("compress")){
+=======
+		} else if (line.startsWith("GetTweet")) {
+			GetTweet op = new GetTweet(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
+		} else if (line.startsWith("DownloadFile")) {
+			HttpDownloadUtility op = new HttpDownloadUtility(sibPath, line);
+			currentOperations.add(op);
+			op.decompress();
+		} else if (line.startsWith("compress")) {
+>>>>>>> FETCH_HEAD
 			for (Operation op : currentOperations) {
 				pw.println(op.compress());
 			}
-		}
-		else if (line.startsWith("decompress")){
+		} else if (line.startsWith("decompress")) {
 			for (Operation op : currentOperations) {
 
 			}
