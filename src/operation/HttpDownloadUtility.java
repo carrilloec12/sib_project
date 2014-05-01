@@ -51,6 +51,8 @@ public class HttpDownloadUtility extends Operation {
 						fileURL.length());
 			}
 
+			System.out.println(saveDir);
+
 			System.out.println("Content-Type = " + contentType);
 			System.out.println("Content-Disposition = " + disposition);
 			System.out.println("Content-Length = " + contentLength);
@@ -60,6 +62,7 @@ public class HttpDownloadUtility extends Operation {
 			InputStream inputStream = httpConn.getInputStream();
 			String saveFilePath = saveDir + File.separator + fileName;
 
+			System.out.println(saveFilePath);
 			// opens an output stream to save into file
 			FileOutputStream outputStream = new FileOutputStream(saveFilePath);
 

@@ -22,7 +22,7 @@ public class GetResults extends Operation {
 		this.sibPath = sib;
 		String tokens[] = line.split(" ");
 		link = tokens[1];
-		folderPath = tokens[2];
+		folderPath = tokens[3];
 	}
 
 	@Override

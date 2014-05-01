@@ -30,7 +30,7 @@ public class Retrieve_links extends Operation {
 		this.sibPath = sib;
 		String tokens[] = line.split(" ");
 		keyword = tokens[1];
-		folderPath = tokens[2];
+		folderPath = tokens[3];
 	}
 
 	@Override
